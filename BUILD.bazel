@@ -3,4 +3,17 @@ cc_binary(
     srcs = [
         "main.c",
     ],
+    deps = [
+        ":library",
+    ],
+)
+
+cc_library(
+    name = "library",
+    srcs = [
+        "library.c",
+    ],
+    hdrs = [
+        "library.h",
+    ],
 )
