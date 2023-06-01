@@ -4,6 +4,7 @@ workspace(
 
 register_toolchains(
     "//:msdos_toolchain",
+    "//:ps2_toolchain",
 )
 
 new_local_repository(
