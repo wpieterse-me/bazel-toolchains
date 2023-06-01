@@ -2,21 +2,6 @@ workspace(
     name = "com_github_wpieterse-me_bazel-toolchains",
 )
 
-register_toolchains(
-    "//:ps2_toolchain",
-)
-
-new_local_repository(
-    name = "ps2",
-    build_file = "//:ps2.BUILD",
-    path = "/usr/local/ps2dev",
-)
-
-local_repository(
-    name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
-    path = "djgpp",
-)
-
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
     "djgpp_toolchain_deps",
