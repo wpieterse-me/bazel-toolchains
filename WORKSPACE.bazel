@@ -2,6 +2,11 @@ workspace(
     name = "com_github_wpieterse-me_bazel-toolchains",
 )
 
+local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
+    path = "djgpp",
+)
+
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
     "djgpp_toolchain_deps",
