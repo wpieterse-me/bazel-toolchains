@@ -25,3 +25,39 @@ platform(
         "//:testing",
     ],
 )
+
+filegroup(
+    name = "testing_all_files",
+    srcs = [
+    ],
+)
+
+wpieterse_cc_toolchain_config(
+    name = "testing_wpieterse_toolchain",
+    toolchain_name = "testing",
+)
+
+cc_toolchain(
+    name = "testing_cc_toolchain",
+    all_files = ":testing_all_files",
+    ar_files = ":testing_all_files",
+    compiler_files = ":testing_all_files",
+    dwp_files = ":testing_all_files",
+    linker_files = ":testing_all_files",
+    objcopy_files = ":testing_all_files",
+    strip_files = ":testing_all_files",
+    toolchain_config = ":testing_wpieterse_toolchain",
+)
+
+toolchain(
+    name = "testing_toolchain",
+    exec_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
+    ],
+    target_compatible_with = [
+        ":testing",
+    ],
+    toolchain = ":testing_cc_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)
