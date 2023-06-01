@@ -29,15 +29,18 @@ platform(
 filegroup(
     name = "msdos_all_files",
     srcs = [
-        "wrappers/i586-pc-msdosdjgpp-gcc.sh",
-        "wrappers/i586-pc-msdosdjgpp-ar.sh",
-        "wrappers/i586-pc-msdosdjgpp-ld.sh",
+        "wrappers/i586-pc-msdosdjgpp/ar.sh",
+        "wrappers/i586-pc-msdosdjgpp/gcc.sh",
+        "wrappers/i586-pc-msdosdjgpp/ld.sh",
         "@djgpp",
     ],
 )
 
 wpieterse_cc_toolchain_config(
     name = "msdos_wpieterse_toolchain",
+    ar = "wrappers/i586-pc-msdosdjgpp/ar.sh",
+    gcc = "wrappers/i586-pc-msdosdjgpp/gcc.sh",
+    ld = "wrappers/i586-pc-msdosdjgpp/ld.sh",
     toolchain_name = "msdos",
 )
 

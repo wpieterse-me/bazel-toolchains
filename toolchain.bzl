@@ -13,11 +13,11 @@ def _wpieterse_cc_toolchain_config_impl(ctx):
     tool_paths = [
         tool_path(
             name = "gcc",
-            path = "wrappers/i586-pc-msdosdjgpp-gcc.sh",
+            path = ctx.attr.gcc,
         ),
         tool_path(
             name = "ar",
-            path = "wrappers/i586-pc-msdosdjgpp-ar.sh",
+            path = ctx.attr.ar,
         ),
         tool_path(
             name = "cpp",
@@ -25,7 +25,7 @@ def _wpieterse_cc_toolchain_config_impl(ctx):
         ),
         tool_path(
             name = "ld",
-            path = "wrappers/i586-pc-msdosdjgpp-ld.sh",
+            path = ctx.attr.ld,
         ),
         tool_path(
             name = "nm",
@@ -81,18 +81,18 @@ def _wpieterse_cc_toolchain_config_impl(ctx):
         feature_supports_dynamic_linker,
     ]
 
-    artifact_names = [
-        artifact_name_pattern(
-            category_name = "executable",
-            prefix = "",
-            extension = ".exe",
-        ),
-    ]
+#    artifact_names = [
+#        artifact_name_pattern(
+#            category_name = "executable",
+#            prefix = "",
+#            extension = ".exe",
+#        ),
+#    ]
 
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         features = features,
-        artifact_name_patterns = artifact_names,
+        # artifact_name_patterns = artifact_names,
         toolchain_identifier = ctx.attr.toolchain_name,
         target_system_name = "fill_me",
         target_cpu = "fill_me",
@@ -105,6 +105,18 @@ wpieterse_cc_toolchain_config = rule(
     implementation = _wpieterse_cc_toolchain_config_impl,
     attrs = {
         "toolchain_name": attr.string(
+            mandatory = True,
+            doc = "Fill me",
+        ),
+        "gcc": attr.string(
+            mandatory = True,
+            doc = "Fill me",
+        ),
+        "ar": attr.string(
+            mandatory = True,
+            doc = "Fill me",
+        ),
+        "ld": attr.string(
             mandatory = True,
             doc = "Fill me",
         ),
