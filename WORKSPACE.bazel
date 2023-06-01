@@ -7,6 +7,12 @@ register_toolchains(
 )
 
 new_local_repository(
+    name = "ps2",
+    build_file = "//:ps2.BUILD",
+    path = "/usr/local/ps2dev",
+)
+
+new_local_repository(
     name = "djgpp",
     build_file = "//:djgpp.BUILD",
     path = "/usr/local/my-djgpp",
