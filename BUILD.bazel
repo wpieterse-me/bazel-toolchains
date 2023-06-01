@@ -1,6 +1,27 @@
+load(
+    "//:toolchain.bzl",
+    "wpieterse_cc_toolchain_config",
+)
+
 cc_binary(
     name = "main",
     srcs = [
         "main.c",
+    ],
+)
+
+constraint_setting(
+    name = "selector",
+)
+
+constraint_value(
+    name = "testing",
+    constraint_setting = "//:selector",
+)
+
+platform(
+    name = "testing_platform",
+    constraint_values = [
+        "//:testing",
     ],
 )
