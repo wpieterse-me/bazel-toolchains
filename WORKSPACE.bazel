@@ -9,5 +9,5 @@ register_toolchains(
 new_local_repository(
     name = "djgpp",
     build_file = "//:djgpp.BUILD",
-    path = "/usr",
+    path = "/usr/local/my-djgpp",
 )
