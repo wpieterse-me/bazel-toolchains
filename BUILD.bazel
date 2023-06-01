@@ -15,49 +15,49 @@ constraint_setting(
 )
 
 constraint_value(
-    name = "testing",
+    name = "msdos",
     constraint_setting = "//:selector",
 )
 
 platform(
-    name = "testing_platform",
+    name = "msdos_platform",
     constraint_values = [
-        "//:testing",
+        "//:msdos",
     ],
 )
 
 filegroup(
-    name = "testing_all_files",
+    name = "msdos_all_files",
     srcs = [
     ],
 )
 
 wpieterse_cc_toolchain_config(
-    name = "testing_wpieterse_toolchain",
-    toolchain_name = "testing",
+    name = "msdos_wpieterse_toolchain",
+    toolchain_name = "msdos",
 )
 
 cc_toolchain(
-    name = "testing_cc_toolchain",
-    all_files = ":testing_all_files",
-    ar_files = ":testing_all_files",
-    compiler_files = ":testing_all_files",
-    dwp_files = ":testing_all_files",
-    linker_files = ":testing_all_files",
-    objcopy_files = ":testing_all_files",
-    strip_files = ":testing_all_files",
-    toolchain_config = ":testing_wpieterse_toolchain",
+    name = "msdos_cc_toolchain",
+    all_files = ":msdos_all_files",
+    ar_files = ":msdos_all_files",
+    compiler_files = ":msdos_all_files",
+    dwp_files = ":msdos_all_files",
+    linker_files = ":msdos_all_files",
+    objcopy_files = ":msdos_all_files",
+    strip_files = ":msdos_all_files",
+    toolchain_config = ":msdos_wpieterse_toolchain",
 )
 
 toolchain(
-    name = "testing_toolchain",
+    name = "msdos_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
         "@platforms//os:linux",
     ],
     target_compatible_with = [
-        ":testing",
+        ":msdos",
     ],
-    toolchain = ":testing_cc_toolchain",
+    toolchain = ":msdos_cc_toolchain",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 )

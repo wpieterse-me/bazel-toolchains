@@ -3,5 +3,5 @@ workspace(
 )
 
 register_toolchains(
-    "//:testing_toolchain",
+    "//:msdos_toolchain",
 )
