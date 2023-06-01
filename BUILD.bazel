@@ -29,6 +29,10 @@ platform(
 filegroup(
     name = "msdos_all_files",
     srcs = [
+        "wrappers/i586-pc-msdosdjgpp-gcc.sh",
+        "wrappers/i586-pc-msdosdjgpp-ar.sh",
+        "wrappers/i586-pc-msdosdjgpp-ld.sh",
+        "@djgpp",
     ],
 )
 
