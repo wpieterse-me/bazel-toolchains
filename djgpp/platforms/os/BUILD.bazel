@@ -1,0 +1,7 @@
+constraint_value(
+    name = "msdos",
+    constraint_setting = "@platforms//os",
+    visibility = [
+        "//visibility:public",
+    ],
+)

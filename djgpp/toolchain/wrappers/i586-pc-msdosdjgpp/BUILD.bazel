@@ -1,8 +1,8 @@
 filegroup(
-    name = "djgpp",
+    name = "i586-pc-msdosdjgpp",
     srcs = glob(
         include = [
-            "**",
+            "*.sh",
         ],
     ),
     visibility = [

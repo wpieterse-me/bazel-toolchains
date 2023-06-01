@@ -15,18 +15,6 @@ constraint_setting(
 )
 
 constraint_value(
-    name = "msdos",
-    constraint_setting = "//:selector",
-)
-
-platform(
-    name = "msdos_platform",
-    constraint_values = [
-        "//:msdos",
-    ],
-)
-
-constraint_value(
     name = "ps2",
     constraint_setting = "//:selector",
 )
@@ -36,49 +24,6 @@ platform(
     constraint_values = [
         "//:ps2",
     ],
-)
-
-filegroup(
-    name = "msdos_all_files",
-    srcs = [
-        "wrappers/i586-pc-msdosdjgpp/ar.sh",
-        "wrappers/i586-pc-msdosdjgpp/gcc.sh",
-        "wrappers/i586-pc-msdosdjgpp/ld.sh",
-        "@djgpp",
-    ],
-)
-
-wpieterse_cc_toolchain_config(
-    name = "msdos_wpieterse_toolchain",
-    ar = "wrappers/i586-pc-msdosdjgpp/ar.sh",
-    gcc = "wrappers/i586-pc-msdosdjgpp/gcc.sh",
-    ld = "wrappers/i586-pc-msdosdjgpp/ld.sh",
-    toolchain_name = "msdos",
-)
-
-cc_toolchain(
-    name = "msdos_cc_toolchain",
-    all_files = ":msdos_all_files",
-    ar_files = ":msdos_all_files",
-    compiler_files = ":msdos_all_files",
-    dwp_files = ":msdos_all_files",
-    linker_files = ":msdos_all_files",
-    objcopy_files = ":msdos_all_files",
-    strip_files = ":msdos_all_files",
-    toolchain_config = ":msdos_wpieterse_toolchain",
-)
-
-toolchain(
-    name = "msdos_toolchain",
-    exec_compatible_with = [
-        "@platforms//cpu:x86_64",
-        "@platforms//os:linux",
-    ],
-    target_compatible_with = [
-        ":msdos",
-    ],
-    toolchain = ":msdos_cc_toolchain",
-    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 )
 
 filegroup(

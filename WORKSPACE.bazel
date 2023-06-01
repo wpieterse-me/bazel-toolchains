@@ -3,7 +3,6 @@ workspace(
 )
 
 register_toolchains(
-    "//:msdos_toolchain",
     "//:ps2_toolchain",
 )
 
@@ -13,8 +12,17 @@ new_local_repository(
     path = "/usr/local/ps2dev",
 )
 
-new_local_repository(
-    name = "djgpp",
-    build_file = "//:djgpp.BUILD",
-    path = "/usr/local/my-djgpp",
+local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
+    path = "djgpp",
 )
+
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
+    "djgpp_toolchain_deps",
+    "djgpp_toolchain_register",
+)
+
+djgpp_toolchain_deps()
+
+djgpp_toolchain_register()
