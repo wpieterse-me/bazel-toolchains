@@ -5,3 +5,9 @@ workspace(
 register_toolchains(
     "//:msdos_toolchain",
 )
+
+new_local_repository(
+    name = "djgpp",
+    build_file = "//:djgpp.BUILD",
+    path = "/usr",
+)
