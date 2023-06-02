@@ -15,6 +15,251 @@ _FEATURE_DISABLE_LEGACY = feature(
     enabled = True,
 )
 
+_FEATURE_COMPILER_INPUT = feature(
+    name = "compiler_input",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-c",
+                        "%{source_file}",
+                    ],
+                    expand_if_available = "source_file",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_OUTPUT = feature(
+    name = "compiler_output",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-o",
+                        "%{output_file}",
+                    ],
+                    expand_if_available = "output_file",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_DEPENDENCY_FILE = feature(
+    name = "compiler_dependency_file",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-MD",
+                        "-MF",
+                        "%{dependency_file}",
+                    ],
+                    expand_if_available = "dependency_file",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_RANDOM_SEED = feature(
+    name = "compiler_random_seed",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-frandom-seed=%{output_file}",
+                    ],
+                    expand_if_available = "output_file",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_NO_CANONICAL_PREFIXES = feature(
+    name = "compiler_no_canonical_prefixes",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-no-canonical-prefixes",
+                    ],
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_NO_CANONICAL_SYSTEM_HEADERS = feature(
+    name = "compiler_no_canonical_system_headers",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-fno-canonical-system-headers",
+                    ],
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_INCLUDE_PREPROCESSOR = feature(
+    name = "compiler_include_preprocessor",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-include",
+                        "%{includes}",
+                    ],
+                    iterate_over = "includes",
+                    expand_if_available = "includes",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_INCLUDE_GENERAL = feature(
+    name = "compiler_include_general",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-I%{include_paths}",
+                    ],
+                    iterate_over = "include_paths",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_INCLUDE_QUOTE = feature(
+    name = "compiler_include_quote",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-iquote",
+                        "%{quote_include_paths}",
+                    ],
+                    iterate_over = "quote_include_paths",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_INCLUDE_SYSTEM = feature(
+    name = "compiler_include_system",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-isystem",
+                        "%{system_include_paths}",
+                    ],
+                    iterate_over = "system_include_paths",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_DEFINES = feature(
+    name = "compiler_defines",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = [
+                        "-D%{preprocessor_defines}",
+                    ],
+                    iterate_over = "preprocessor_defines",
+                ),
+            ],
+        ),
+    ],
+)
+
+_FEATURE_COMPILER_USER_FLAGS = feature(
+    name = "compiler_user_flags",
+    flag_sets = [
+        flag_set(
+            actions = [
+                ACTION_NAMES.c_compile,
+                ACTION_NAMES.cpp_compile,
+            ],
+            flag_groups = [
+                flag_group(
+                    flags = ["%{user_compile_flags}"],
+                    iterate_over = "user_compile_flags",
+                    expand_if_available = "user_compile_flags",
+                ),
+            ],
+        ),
+    ],
+)
+
 _FEATURE_ARCHIVE_COMMON_OPTIONS = feature(
     name = "archive_common_options",
     flag_sets = [
@@ -80,239 +325,6 @@ _FEATURE_ARCHIVE_INPUT = feature(
                         ),
                     ],
                     expand_if_available = "libraries_to_link",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_INPUT = feature(
-    name = "compiler_input",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-c",
-                        "%{source_file}",
-                    ],
-                    expand_if_available = "source_file",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_OUTPUT = feature(
-    name = "compiler_output",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-o",
-                        "%{output_file}",
-                    ],
-                    expand_if_available = "output_file",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_DEPENDENCY_FILE = feature(
-    name = "compiler_dependency_file",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-MD",
-                        "-MF",
-                        "%{dependency_file}",
-                    ],
-                    expand_if_available = "dependency_file",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_RANDOM_SEED = feature(
-    name = "compiler_random_seed",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-frandom-seed=%{output_file}",
-                    ],
-                    expand_if_available = "output_file",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_NO_CANONICAL_PREFIXES = feature(
-    name = "compiler_no_canonical_prefixes",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-no-canonical-prefixes",
-                    ],
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_NO_CANONICAL_SYSTEM_HEADERS = feature(
-    name = "compiler_no_canonical_system_headers",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-fno-canonical-system-headers",
-                    ],
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_INCLUDE_PREPROCESSOR = feature(
-    name = "compiler_include_preprocessor",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-include",
-                        "%{includes}",
-                    ],
-                    iterate_over = "includes",
-                    expand_if_available = "includes",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_INCLUDE_GENERAL = feature(
-    name = "compiler_include_general",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-I%{include_paths}",
-                    ],
-                    iterate_over = "include_paths",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_INCLUDE_QUOTE = feature(
-    name = "compiler_include_quote",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-iquote",
-                        "%{quote_include_paths}",
-                    ],
-                    iterate_over = "quote_include_paths",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_INCLUDE_SYSTEM = feature(
-    name = "compiler_include_system",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-isystem",
-                        "%{system_include_paths}",
-                    ],
-                    iterate_over = "system_include_paths",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_DEFINES = feature(
-    name = "compiler_defines",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = [
-                        "-D%{preprocessor_defines}",
-                    ],
-                    iterate_over = "preprocessor_defines",
-                ),
-            ],
-        ),
-    ],
-)
-
-_FEATURE_COMPILER_USER_FLAGS = feature(
-    name = "compiler_user_flags",
-    flag_sets = [
-        flag_set(
-            actions = [
-                ACTION_NAMES.c_compile,
-            ],
-            flag_groups = [
-                flag_group(
-                    flags = ["%{user_compile_flags}"],
-                    iterate_over = "user_compile_flags",
-                    expand_if_available = "user_compile_flags",
                 ),
             ],
         ),
