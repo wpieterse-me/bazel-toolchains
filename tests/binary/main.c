@@ -5,8 +5,12 @@
 #include "tests/binary/lib_cpp.h"
 
 int32_t main(int32_t argument_count, char** arguments) {
-  printf("%s\n", GetMessageC());
-  printf("%s\n", GetMessageCPP());
+  for(int32_t counter = 0; counter < 32; counter++) {
+    printf("%s\n", GetMessageC());
+    printf("%s\n", GetMessageCPP());
+  }
+
+  printf("\n\n\n--- DONE ---\n\n\n");
 
   return 0;
 }
