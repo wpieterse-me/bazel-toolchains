@@ -1,6 +1,6 @@
 platforms
 
-shared
+shared-gcc
 
 djgpp
 mingw

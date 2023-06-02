@@ -8,8 +8,8 @@ local_repository(
 )
 
 local_repository(
-    name = "com_github_wpieterse-me_bazel-toolchain-shared",
-    path = "shared",
+    name = "com_github_wpieterse-me_bazel-toolchain-shared-gnu",
+    path = "shared-gnu",
 )
 
 local_repository(
