@@ -32,6 +32,10 @@ local_repository(
     path = "mingw",
 )
 
+# register_execution_platforms(
+#     "@com_github_wpieterse-me_bazel-platforms//:mips64r5900-el_ps2-ee",
+# )
+
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchains:deps.bzl",
     djgpp_toolchain_deps = "toolchain_deps",

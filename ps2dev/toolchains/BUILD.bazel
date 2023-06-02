@@ -8,6 +8,8 @@ toolchain(
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
         "@platforms//os:linux",
+        # "@com_github_wpieterse-me_bazel-platforms//cpu:mips64r5900el",
+        # "@com_github_wpieterse-me_bazel-platforms//os:ps2-ee",
     ],
     target_compatible_with = [
         "@com_github_wpieterse-me_bazel-platforms//cpu:mips64r5900el",
