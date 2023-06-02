@@ -3,7 +3,7 @@ load(
     "http_archive",
 )
 
-def mingw_toolchain_deps():
+def toolchain_deps():
     http_archive(
         name = "mingw_toolchain",
         build_file = "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:mingw.BUILD",
@@ -14,7 +14,7 @@ def mingw_toolchain_deps():
         strip_prefix = "llvm-mingw-20230517-ucrt-ubuntu-20.04-x86_64",
     )
 
-def mingw_toolchain_register():
+def toolchain_register():
     native.register_toolchains(
         "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:i686-w64-mingw32-toolchain",
         "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:x86_64-w64-mingw32-toolchain",

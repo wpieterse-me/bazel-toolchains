@@ -24,8 +24,8 @@ local_repository(
 
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
-    "djgpp_toolchain_deps",
-    "djgpp_toolchain_register",
+    djgpp_toolchain_deps = "toolchain_deps",
+    djgpp_toolchain_register = "toolchain_register",
 )
 
 djgpp_toolchain_deps()
@@ -34,8 +34,8 @@ djgpp_toolchain_register()
 
 load(
     "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:deps.bzl",
-    "ps2_toolchain_deps",
-    "ps2_toolchain_register",
+    ps2_toolchain_deps = "toolchain_deps",
+    ps2_toolchain_register = "toolchain_register",
 )
 
 ps2_toolchain_deps()
@@ -44,8 +44,8 @@ ps2_toolchain_register()
 
 load(
     "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:deps.bzl",
-    "mingw_toolchain_deps",
-    "mingw_toolchain_register",
+    mingw_toolchain_deps = "toolchain_deps",
+    mingw_toolchain_register = "toolchain_register",
 )
 
 mingw_toolchain_deps()

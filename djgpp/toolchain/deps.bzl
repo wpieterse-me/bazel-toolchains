@@ -3,7 +3,7 @@ load(
     "http_archive",
 )
 
-def djgpp_toolchain_deps():
+def toolchain_deps():
     http_archive(
         name = "djgpp_toolchain",
         build_file = "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:djgpp.BUILD",
@@ -14,7 +14,7 @@ def djgpp_toolchain_deps():
         strip_prefix = "djgpp",
     )
 
-def djgpp_toolchain_register():
+def toolchain_register():
     native.register_toolchains(
         "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain",
     )
