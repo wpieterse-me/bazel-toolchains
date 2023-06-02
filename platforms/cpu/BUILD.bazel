@@ -3,3 +3,8 @@ package(
         "//visibility:public",
     ],
 )
+
+constraint_value(
+    name = "mips64r5900el",
+    constraint_setting = "@platforms//cpu",
+)

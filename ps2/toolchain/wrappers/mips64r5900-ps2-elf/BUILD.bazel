@@ -1,0 +1,11 @@
+filegroup(
+    name = "mips64r5900-ps2-elf",
+    srcs = glob(
+        include = [
+            "*.sh",
+        ],
+    ),
+    visibility = [
+        "//visibility:public",
+    ],
+)

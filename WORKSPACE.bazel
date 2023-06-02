@@ -12,6 +12,11 @@ local_repository(
     path = "djgpp",
 )
 
+local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-ps2",
+    path = "ps2",
+)
+
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
     "djgpp_toolchain_deps",
@@ -21,3 +26,13 @@ load(
 djgpp_toolchain_deps()
 
 djgpp_toolchain_register()
+
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchain:deps.bzl",
+    "ps2_toolchain_deps",
+    "ps2_toolchain_register",
+)
+
+ps2_toolchain_deps()
+
+ps2_toolchain_register()

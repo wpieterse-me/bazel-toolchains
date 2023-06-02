@@ -8,3 +8,8 @@ constraint_value(
     name = "msdos",
     constraint_setting = "@platforms//os",
 )
+
+constraint_value(
+    name = "ps2-ee",
+    constraint_setting = "@platforms//os",
+)
