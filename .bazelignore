@@ -1,4 +1,5 @@
 platforms
+
 djgpp
 mingw
-ps2
+ps2dev

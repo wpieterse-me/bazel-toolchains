@@ -14,7 +14,7 @@ local_repository(
 
 local_repository(
     name = "com_github_wpieterse-me_bazel-toolchain-ps2",
-    path = "ps2",
+    path = "ps2dev",
 )
 
 local_repository(
