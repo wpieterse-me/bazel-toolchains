@@ -28,7 +28,7 @@ djgpp_toolchain_deps()
 djgpp_toolchain_register()
 
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchain:deps.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:deps.bzl",
     "ps2_toolchain_deps",
     "ps2_toolchain_register",
 )
