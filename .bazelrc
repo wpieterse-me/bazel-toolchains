@@ -1,3 +1,8 @@
 build --incompatible_enable_cc_toolchain_resolution
 
+build:target-msdos --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-32_msdos
+build:target-mingw-32 --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-32_windows
+build:target-mingw-64 --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-64_windows
+build:target-ps2-ee --platforms=@com_github_wpieterse-me_bazel-platforms//:mips64r5900-el_ps2-ee
+
 test:ps2 --run_under=//:wrapper
