@@ -1,0 +1,33 @@
+cc_binary(
+    name = "binary",
+    srcs = [
+        "main.c",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        ":library_c",
+        ":library_cpp",
+    ],
+)
+
+cc_library(
+    name = "library_c",
+    srcs = [
+        "lib_c.c",
+    ],
+    hdrs = [
+        "lib_c.h",
+    ],
+)
+
+cc_library(
+    name = "library_cpp",
+    srcs = [
+        "lib_cpp.cc",
+    ],
+    hdrs = [
+        "lib_cpp.h",
+    ],
+)
