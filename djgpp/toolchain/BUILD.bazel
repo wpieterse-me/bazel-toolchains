@@ -11,7 +11,7 @@ toolchain(
     ],
     target_compatible_with = [
         "@platforms//cpu:x86_32",
-        "@com_github_wpieterse-me_bazel-toolchain-djgpp//platforms/os:msdos",
+        "@com_github_wpieterse-me_bazel-platforms//os:msdos",
     ],
     toolchain = "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:cc_toolchain",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",

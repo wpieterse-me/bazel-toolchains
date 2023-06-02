@@ -3,6 +3,11 @@ workspace(
 )
 
 local_repository(
+    name = "com_github_wpieterse-me_bazel-platforms",
+    path = "platforms",
+)
+
+local_repository(
     name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
     path = "djgpp",
 )
