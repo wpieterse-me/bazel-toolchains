@@ -8,8 +8,5 @@ def toolchain_deps():
 def toolchain_register():
     native.register_toolchains(
         "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:mips64r5900-ps2-elf-toolchain",
-    )
-
-    native.register_toolchains(
         "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:mipsel-ps2-elf-toolchain",
     )
