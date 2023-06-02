@@ -1,5 +1,5 @@
 filegroup(
-    name = "dvp",
+    name = "mipsel-ps2-elf",
     srcs = glob(
         include = [
             "*.sh",

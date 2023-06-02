@@ -1,6 +1,6 @@
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:toolchain.bzl",
-    "cc_toolchain_config",
+    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:toolchain_config_ee.bzl",
+    "cc_toolchain_config_ee",
 )
 
 toolchain(
@@ -29,7 +29,7 @@ cc_toolchain(
     toolchain_config = "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:mips64r5900-ps2-elf-cc_toolchain_config",
 )
 
-cc_toolchain_config(
+cc_toolchain_config_ee(
     name = "mips64r5900-ps2-elf-cc_toolchain_config",
 )
 
