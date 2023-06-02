@@ -8,6 +8,11 @@ local_repository(
 )
 
 local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-shared",
+    path = "shared",
+)
+
+local_repository(
     name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
     path = "djgpp",
 )

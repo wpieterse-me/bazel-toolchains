@@ -1,5 +1,7 @@
 platforms
 
+shared
+
 djgpp
 mingw
 ps2dev
