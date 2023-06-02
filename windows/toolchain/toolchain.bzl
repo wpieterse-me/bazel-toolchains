@@ -350,7 +350,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.assemble,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/as.sh",
+                    path = "wrappers/x86_64-w64-mingw32/as.sh",
                 ),
             ],
             implies = [
@@ -360,7 +360,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.preprocess_assemble,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/as.sh",
+                    path = "wrappers/x86_64-w64-mingw32/as.sh",
                 ),
             ],
             implies = [
@@ -370,7 +370,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.c_compile,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/gcc.sh",
+                    path = "wrappers/x86_64-w64-mingw32/gcc.sh",
                 ),
             ],
             implies = [
@@ -382,7 +382,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_compile,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/g++.sh",
+                    path = "wrappers/x86_64-w64-mingw32/g++.sh",
                 ),
             ],
             implies = [
@@ -394,7 +394,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_static_library,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/ar.sh",
+                    path = "wrappers/x86_64-w64-mingw32/ar.sh",
                 ),
             ],
             implies = [
@@ -405,7 +405,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_executable,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/ld.sh",
+                    path = "wrappers/x86_64-w64-mingw32/ld.sh",
                 ),
             ],
             implies = [
@@ -416,7 +416,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.strip,
             tools = [
                 tool(
-                    path = "wrappers/i686-w64-mingw32/strip.sh",
+                    path = "wrappers/x86_64-w64-mingw32/strip.sh",
                 ),
             ],
         ),
@@ -440,11 +440,6 @@ def _cc_toolchain_config_impl(ctx):
         target_cpu = "fill_me",
         target_libc = "fill_me",
         compiler = "fill_me",
-        # cxx_builtin_include_directories = [
-        #     "%package(mingw_toolchain)%/lib/clang/16/include/",
-        #     "%package(mingw_toolchain)%/x86_64-w64-mingw32/include/",
-        #     "%package(mingw_toolchain)%/x86_64-w64-mingw32/include/c++/v1/",
-        # ],
     )
 
 cc_toolchain_config = rule(

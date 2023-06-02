@@ -1,5 +1,5 @@
 filegroup(
-    name = "i686-w64-mingw32",
+    name = "x86_64-w64-mingw32",
     srcs = glob(
         include = [
             "*.sh",

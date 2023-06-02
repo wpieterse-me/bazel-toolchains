@@ -36,7 +36,7 @@ cc_toolchain_config(
 filegroup(
     name = "all_files",
     srcs = [
-        "@com_github_wpieterse-me_bazel-toolchain-windows//toolchain/wrappers/i686-w64-mingw32",
+        "@com_github_wpieterse-me_bazel-toolchain-windows//toolchain/wrappers/x86_64-w64-mingw32",
         "@mingw_toolchain",
     ],
 )
