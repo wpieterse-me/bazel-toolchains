@@ -502,7 +502,7 @@ _FEATURE_LINKER_USER_FLAGS = feature(
     ],
 )
 
-FEATURES = struct(
+SPECIFIC_FEATURES = struct(
     disable_legacy = _FEATURE_DISABLE_LEGACY,
     archive_common_options = _FEATURE_ARCHIVE_COMMON_OPTIONS,
     archive_input = _FEATURE_ARCHIVE_INPUT,
@@ -525,3 +525,27 @@ FEATURES = struct(
     linker_link_stamp = _FEATURE_LINKER_LINK_STAMP,
     linker_user_flags = _FEATURE_LINKER_USER_FLAGS,
 )
+
+ALL_FEATURES = [
+    SPECIFIC_FEATURES.disable_legacy,
+    SPECIFIC_FEATURES.compiler_input,
+    SPECIFIC_FEATURES.compiler_output,
+    SPECIFIC_FEATURES.compiler_dependency_file,
+    SPECIFIC_FEATURES.compiler_random_seed,
+    SPECIFIC_FEATURES.compiler_no_canonical_prefixes,
+    SPECIFIC_FEATURES.compiler_no_canonical_system_headers,
+    SPECIFIC_FEATURES.compiler_include_preprocessor,
+    SPECIFIC_FEATURES.compiler_include_general,
+    SPECIFIC_FEATURES.compiler_include_quote,
+    SPECIFIC_FEATURES.compiler_include_system,
+    SPECIFIC_FEATURES.compiler_defines,
+    SPECIFIC_FEATURES.compiler_user_flags,
+    SPECIFIC_FEATURES.archive_common_options,
+    SPECIFIC_FEATURES.archive_output,
+    SPECIFIC_FEATURES.archive_input,
+    SPECIFIC_FEATURES.linker_configuration_file,
+    SPECIFIC_FEATURES.linker_input,
+    SPECIFIC_FEATURES.linker_output,
+    SPECIFIC_FEATURES.linker_link_stamp,
+    SPECIFIC_FEATURES.linker_user_flags,
+]

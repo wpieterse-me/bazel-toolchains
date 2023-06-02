@@ -5,11 +5,11 @@ load(
 )
 load(
     "@com_github_wpieterse-me_bazel-toolchain-shared-gnu//toolchains:features.bzl",
-    "FEATURES",
+    _ALL_FEATURES = "ALL_FEATURES",
 )
 load(
     "@com_github_wpieterse-me_bazel-toolchain-shared-gnu//toolchains:action_configs.bzl",
-    "generate_action_configs",
+    _generate_action_configs = "generate_action_configs",
 )
 
 def _cc_toolchain_config_impl(ctx):
@@ -26,36 +26,15 @@ def _cc_toolchain_config_impl(ctx):
             name = "supports_start_end_lib",
             enabled = False,
         ),
-        FEATURES.disable_legacy,
-        FEATURES.compiler_input,
-        FEATURES.compiler_output,
-        FEATURES.compiler_dependency_file,
-        FEATURES.compiler_random_seed,
-        FEATURES.compiler_no_canonical_prefixes,
-        FEATURES.compiler_no_canonical_system_headers,
-        FEATURES.compiler_include_preprocessor,
-        FEATURES.compiler_include_general,
-        FEATURES.compiler_include_quote,
-        FEATURES.compiler_include_system,
-        FEATURES.compiler_defines,
-        FEATURES.compiler_user_flags,
-        FEATURES.archive_common_options,
-        FEATURES.archive_output,
-        FEATURES.archive_input,
-        FEATURES.linker_configuration_file,
-        FEATURES.linker_input,
-        FEATURES.linker_output,
-        FEATURES.linker_link_stamp,
-        FEATURES.linker_user_flags,
         feature(
             name = "opt",
         ),
         feature(
             name = "dbg",
         ),
-    ]
+    ] + _ALL_FEATURES
 
-    action_configs = generate_action_configs(
+    action_configs = _generate_action_configs(
         wrapper_path = ctx.attr.target,
         c_compile_features = [
             "compiler_no_canonical_system_headers",
