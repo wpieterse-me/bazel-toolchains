@@ -13,7 +13,7 @@ local_repository(
 )
 
 local_repository(
-    name = "com_github_wpieterse-me_bazel-toolchain-ps2",
+    name = "com_github_wpieterse-me_bazel-toolchain-ps2dev",
     path = "ps2dev",
 )
 
@@ -33,7 +33,7 @@ djgpp_toolchain_deps()
 djgpp_toolchain_register()
 
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:deps.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:deps.bzl",
     ps2_toolchain_deps = "toolchain_deps",
     ps2_toolchain_register = "toolchain_register",
 )
