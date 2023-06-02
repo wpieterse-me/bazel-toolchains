@@ -1,0 +1,9 @@
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-ps2dev//rules:rules.bzl",
+    "ps2_ee_binary",
+)
+
+ps2_ee_binary(
+    name = "ps2_ee",
+    binary = "//tests/binary",
+)
