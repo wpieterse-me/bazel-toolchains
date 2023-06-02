@@ -23,7 +23,7 @@ local_repository(
 )
 
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchains:deps.bzl",
     djgpp_toolchain_deps = "toolchain_deps",
     djgpp_toolchain_register = "toolchain_register",
 )
