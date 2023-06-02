@@ -31,7 +31,7 @@ cc_toolchain(
 
 cc_toolchain_config(
     name = "i686-w64-mingw32_cc-toolchain-config",
-    target = "i686-w64-mingw32",
+    target = "wrappers/i686-w64-mingw32",
 )
 
 filegroup(
@@ -70,7 +70,7 @@ cc_toolchain(
 
 cc_toolchain_config(
     name = "x86_64-w64-mingw32_cc-toolchain-config",
-    target = "x86_64-w64-mingw32",
+    target = "wrappers/x86_64-w64-mingw32",
 )
 
 filegroup(
