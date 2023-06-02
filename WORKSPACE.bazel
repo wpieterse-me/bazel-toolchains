@@ -43,7 +43,7 @@ ps2_toolchain_deps()
 ps2_toolchain_register()
 
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-windows//toolchain:deps.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:deps.bzl",
     "mingw_toolchain_deps",
     "mingw_toolchain_register",
 )
