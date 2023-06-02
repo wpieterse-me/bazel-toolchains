@@ -17,6 +17,11 @@ local_repository(
     path = "ps2",
 )
 
+local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-windows",
+    path = "windows",
+)
+
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:deps.bzl",
     "djgpp_toolchain_deps",
@@ -36,3 +41,13 @@ load(
 ps2_toolchain_deps()
 
 ps2_toolchain_register()
+
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-windows//toolchain:deps.bzl",
+    "mingw_toolchain_deps",
+    "mingw_toolchain_register",
+)
+
+mingw_toolchain_deps()
+
+mingw_toolchain_register()
