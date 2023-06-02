@@ -1,0 +1,11 @@
+filegroup(
+    name = "i686-w64-mingw32",
+    srcs = glob(
+        include = [
+            "*.sh",
+        ],
+    ),
+    visibility = [
+        "//visibility:public",
+    ],
+)
