@@ -16,5 +16,5 @@ def mingw_toolchain_deps():
 
 def mingw_toolchain_register():
     native.register_toolchains(
-        "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:x86_64-w64-mingw32-toolchain",
     )
