@@ -1,11 +1,6 @@
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:toolchain_config_ee.bzl",
-    "cc_toolchain_config_ee",
-)
-
-load(
-    "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:toolchain_config_iop.bzl",
-    "cc_toolchain_config_iop",
+    "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:toolchain_config.bzl",
+    "cc_toolchain_config",
 )
 
 toolchain(
@@ -34,15 +29,16 @@ cc_toolchain(
     toolchain_config = "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:mips64r5900-ps2-elf-cc_toolchain_config",
 )
 
-cc_toolchain_config_ee(
+cc_toolchain_config(
     name = "mips64r5900-ps2-elf-cc_toolchain_config",
+    target = "wrappers/mips64r5900-ps2-elf",
 )
 
 filegroup(
     name = "mips64r5900-ps2-elf-all_files",
     srcs = [
-        "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains/wrappers/mips64r5900-ps2-elf",
         "@com_github_wpieterse-me_bazel-toolchain-ps2dev-archive",
+        "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains/wrappers/mips64r5900-ps2-elf",
     ],
 )
 
@@ -72,14 +68,15 @@ cc_toolchain(
     toolchain_config = "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains:mipsel-ps2-elf-cc_toolchain_config",
 )
 
-cc_toolchain_config_iop(
+cc_toolchain_config(
     name = "mipsel-ps2-elf-cc_toolchain_config",
+    target = "wrappers/mipsel-ps2-elf",
 )
 
 filegroup(
     name = "mipsel-ps2-elf-all_files",
     srcs = [
-        "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains/wrappers/mipsel-ps2-elf",
         "@com_github_wpieterse-me_bazel-toolchain-ps2dev-archive",
+        "@com_github_wpieterse-me_bazel-toolchain-ps2dev//toolchains/wrappers/mipsel-ps2-elf",
     ],
 )
