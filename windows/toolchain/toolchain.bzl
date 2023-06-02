@@ -93,7 +93,14 @@ def _cc_toolchain_config_impl(ctx):
                                 "-o",
                                 "%{output_file}",
                                 "-no-canonical-prefixes",
-                                "-fno-canonical-system-headers",
+                                # "-fno-canonical-system-headers",
+                                "-nostdinc",
+                                "-isystem",
+                                "external/mingw_toolchain/lib/clang/16/include/",
+                                "-isystem",
+                                "external/mingw_toolchain/x86_64-w64-mingw32/include/",
+                                "-isystem",
+                                "external/mingw_toolchain/x86_64-w64-mingw32/include/c++/v1/",
                                 "-MD",
                                 "-MF",
                                 "%{dependency_file}",
@@ -433,6 +440,11 @@ def _cc_toolchain_config_impl(ctx):
         target_cpu = "fill_me",
         target_libc = "fill_me",
         compiler = "fill_me",
+        # cxx_builtin_include_directories = [
+        #     "%package(mingw_toolchain)%/lib/clang/16/include/",
+        #     "%package(mingw_toolchain)%/x86_64-w64-mingw32/include/",
+        #     "%package(mingw_toolchain)%/x86_64-w64-mingw32/include/c++/v1/",
+        # ],
     )
 
 cc_toolchain_config = rule(
