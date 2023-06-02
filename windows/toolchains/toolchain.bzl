@@ -350,7 +350,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.assemble,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/as.sh",
+                    path = "wrappers/{}/as.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -360,7 +360,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.preprocess_assemble,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/as.sh",
+                    path = "wrappers/{}/as.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -370,7 +370,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.c_compile,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/gcc.sh",
+                    path = "wrappers/{}/gcc.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -382,7 +382,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_compile,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/g++.sh",
+                    path = "wrappers/{}/g++.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -394,7 +394,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_static_library,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/ar.sh",
+                    path = "wrappers/{}/ar.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -405,7 +405,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_executable,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/ld.sh",
+                    path = "wrappers/{}/ld.sh".format(ctx.attr.target),
                 ),
             ],
             implies = [
@@ -416,7 +416,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.strip,
             tools = [
                 tool(
-                    path = "wrappers/x86_64-w64-mingw32/strip.sh",
+                    path = "wrappers/{}/strip.sh".format(ctx.attr.target),
                 ),
             ],
         ),
@@ -445,6 +445,9 @@ def _cc_toolchain_config_impl(ctx):
 cc_toolchain_config = rule(
     implementation = _cc_toolchain_config_impl,
     attrs = {
+        "target": attr.string(
+            mandatory = True,
+        ),
     },
     provides = [
         CcToolchainConfigInfo,
