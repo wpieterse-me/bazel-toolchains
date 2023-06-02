@@ -8,3 +8,13 @@ constraint_value(
     name = "mips64r5900el",
     constraint_setting = "@platforms//cpu",
 )
+
+constraint_value(
+    name = "mips64r5900el-vu",
+    constraint_setting = "@platforms//cpu",
+)
+
+constraint_value(
+    name = "mipsel",
+    constraint_setting = "@platforms//cpu",
+)

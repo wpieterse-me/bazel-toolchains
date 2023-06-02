@@ -19,3 +19,11 @@ platform(
         "@com_github_wpieterse-me_bazel-platforms//os:ps2-ee",
     ],
 )
+
+platform(
+    name = "mips64r5900-el_ps2-vu",
+    constraint_values = [
+        "@com_github_wpieterse-me_bazel-platforms//cpu:mips64r5900el-vu",
+        "@com_github_wpieterse-me_bazel-platforms//os:ps2-ee",
+    ],
+)

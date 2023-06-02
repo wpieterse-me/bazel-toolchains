@@ -1,0 +1,11 @@
+filegroup(
+    name = "dvp",
+    srcs = glob(
+        include = [
+            "*.sh",
+        ],
+    ),
+    visibility = [
+        "//visibility:public",
+    ],
+)

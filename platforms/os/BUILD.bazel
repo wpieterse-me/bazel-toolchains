@@ -13,3 +13,13 @@ constraint_value(
     name = "ps2-ee",
     constraint_setting = "@platforms//os",
 )
+
+constraint_value(
+    name = "ps2-iop-elf",
+    constraint_setting = "@platforms//os",
+)
+
+constraint_value(
+    name = "ps2-iop-irx",
+    constraint_setting = "@platforms//os",
+)
