@@ -1,0 +1,13 @@
+cc_test(
+    name = "test",
+    srcs = [
+        "test.cpp",
+    ],
+)
+
+sh_binary(
+    name = "wrapper",
+    srcs = [
+        "wrapper.sh",
+    ],
+)
