@@ -1,17 +1,15 @@
 load(
-    "@bazel_tools//tools/build_defs/cc:action_names.bzl",
-    "ACTION_NAMES",
-)
-load(
     "@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl",
-    "action_config",
     "artifact_name_pattern",
     "feature",
-    "tool",
 )
 load(
     "@com_github_wpieterse-me_bazel-toolchain-shared-gnu//toolchains:features.bzl",
     "FEATURES",
+)
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-shared-gnu//toolchains:action_configs.bzl",
+    "generate_action_configs",
 )
 
 def _cc_toolchain_config_impl(ctx):
@@ -57,90 +55,12 @@ def _cc_toolchain_config_impl(ctx):
         ),
     ]
 
-    action_configs = [
-        action_config(
-            action_name = ACTION_NAMES.assemble,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/as.sh",
-                ),
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.preprocess_assemble,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/as.sh",
-                ),
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.c_compile,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/gcc.sh",
-                ),
-            ],
-            implies = [
-                "compiler_dependency_file",
-                "compiler_output",
-                "compiler_input",
-                "compiler_random_seed",
-                "compiler_no_canonical_prefixes",
-                "compiler_no_canonical_system_headers",
-                "compiler_include_preprocessor",
-                "compiler_include_general",
-                "compiler_include_quote",
-                "compiler_include_system",
-                "compiler_defines",
-                "compiler_user_flags",
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.cpp_compile,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/g++.sh",
-                ),
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.cpp_link_static_library,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/ar.sh",
-                ),
-            ],
-            implies = [
-                "archive_common_options",
-                "archive_output",
-                "archive_input",
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.cpp_link_executable,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/ld.sh",
-                ),
-            ],
-            implies = [
-                "linker_configuration_file",
-                "linker_input",
-                "linker_output",
-                "linker_link_stamp",
-                "linker_user_flags",
-            ],
-        ),
-        action_config(
-            action_name = ACTION_NAMES.strip,
-            tools = [
-                tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/strip.sh",
-                ),
-            ],
-        ),
-    ]
+    action_configs = generate_action_configs(
+        wrapper_path = "wrappers/i586-pc-msdosdjgpp",
+        c_compile_features = [
+            "compiler_no_canonical_system_headers",
+        ],
+    )
 
     artifact_name_patterns = [
         artifact_name_pattern(
