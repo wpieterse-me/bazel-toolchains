@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec external/djgpp_toolchain/bin/i586-pc-msdosdjgpp-strip $@
+exec external/com_github_wpieterse-me_bazel-toolchain-djgpp-archive/bin/i586-pc-msdosdjgpp-strip $@

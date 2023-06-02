@@ -1,8 +1,8 @@
 def toolchain_deps():
     native.new_local_repository(
-        name = "ps2_toolchain",
+        name = "com_github_wpieterse-me_bazel-toolchain-ps2dev-archive",
         path = "/usr/local/ps2dev",
-        build_file = "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:ps2.BUILD",
+        build_file = "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:archive.BUILD",
     )
 
 def toolchain_register():

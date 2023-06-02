@@ -42,7 +42,7 @@ filegroup(
     name = "mips64r5900-ps2-elf-all_files",
     srcs = [
         "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains/wrappers/mips64r5900-ps2-elf",
-        "@ps2_toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-ps2dev-archive",
     ],
 )
 
@@ -80,6 +80,6 @@ filegroup(
     name = "mipsel-ps2-elf-all_files",
     srcs = [
         "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains/wrappers/mipsel-ps2-elf",
-        "@ps2_toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-ps2dev-archive",
     ],
 )

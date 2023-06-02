@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec external/ps2_toolchain/iop/bin/mipsel-ps2-elf-as $@
+exec external/com_github_wpieterse-me_bazel-toolchain-ps2dev-archive/iop/bin/mipsel-ps2-elf-as $@

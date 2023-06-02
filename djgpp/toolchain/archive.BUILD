@@ -1,5 +1,5 @@
 filegroup(
-    name = "ps2_toolchain",
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
     srcs = glob(
         include = [
             "**",

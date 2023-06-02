@@ -5,8 +5,8 @@ load(
 
 def toolchain_deps():
     http_archive(
-        name = "djgpp_toolchain",
-        build_file = "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:djgpp.BUILD",
+        name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
+        build_file = "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain:archive.BUILD",
         urls = [
             "https://github.com/andrewwutw/build-djgpp/releases/download/v3.3/djgpp-linux64-gcc1210.tar.bz2",
         ],

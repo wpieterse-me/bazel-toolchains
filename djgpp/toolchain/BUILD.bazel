@@ -37,6 +37,6 @@ filegroup(
     name = "all_files",
     srcs = [
         "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchain/wrappers/i586-pc-msdosdjgpp",
-        "@djgpp_toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
     ],
 )

@@ -38,7 +38,7 @@ filegroup(
     name = "i686-w64-mingw32_all-files",
     srcs = [
         "@com_github_wpieterse-me_bazel-toolchain-mingw//toolchains/wrappers/i686-w64-mingw32",
-        "@mingw_toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-mingw-archive",
     ],
 )
 
@@ -77,6 +77,6 @@ filegroup(
     name = "x86_64-w64-mingw32_all-files",
     srcs = [
         "@com_github_wpieterse-me_bazel-toolchain-mingw//toolchains/wrappers/x86_64-w64-mingw32",
-        "@mingw_toolchain",
+        "@com_github_wpieterse-me_bazel-toolchain-mingw-archive",
     ],
 )
