@@ -18,8 +18,8 @@ local_repository(
 )
 
 local_repository(
-    name = "com_github_wpieterse-me_bazel-toolchain-windows",
-    path = "windows",
+    name = "com_github_wpieterse-me_bazel-toolchain-mingw",
+    path = "mingw",
 )
 
 load(
@@ -43,7 +43,7 @@ ps2_toolchain_deps()
 ps2_toolchain_register()
 
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-windows//toolchains:deps.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-mingw//toolchains:deps.bzl",
     mingw_toolchain_deps = "toolchain_deps",
     mingw_toolchain_register = "toolchain_register",
 )

@@ -1,4 +1,4 @@
 platforms
 djgpp
+mingw
 ps2
-windows
