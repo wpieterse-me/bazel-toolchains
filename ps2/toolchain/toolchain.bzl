@@ -343,7 +343,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.assemble,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/as.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/as.sh",
                 ),
             ],
             implies = [
@@ -353,7 +353,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.preprocess_assemble,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/as.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/as.sh",
                 ),
             ],
             implies = [
@@ -363,7 +363,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.c_compile,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/gcc.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/gcc.sh",
                 ),
             ],
             implies = [
@@ -375,7 +375,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_compile,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/g++.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/g++.sh",
                 ),
             ],
             implies = [
@@ -387,7 +387,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_static_library,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/ar.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/ar.sh",
                 ),
             ],
             implies = [
@@ -398,7 +398,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_executable,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/ld.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/ld.sh",
                 ),
             ],
             implies = [
@@ -409,25 +409,25 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.strip,
             tools = [
                 tool(
-                    path = "wrappers/i586-pc-msdosdjgpp/strip.sh",
+                    path = "wrappers/mips64r5900-ps2-elf/strip.sh",
                 ),
             ],
         ),
     ]
 
-    artifact_name_patterns = [
-        artifact_name_pattern(
-            category_name = "executable",
-            prefix = "",
-            extension = ".exe",
-        ),
-    ]
+    # artifact_name_patterns = [
+    #     artifact_name_pattern(
+    #         category_name = "executable",
+    #         prefix = "",
+    #         extension = ".elf",
+    #     ),
+    # ]
 
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         features = features,
         action_configs = action_configs,
-        artifact_name_patterns = artifact_name_patterns,
+        # artifact_name_patterns = artifact_name_patterns,
         toolchain_identifier = "fill_me",
         target_system_name = "fill_me",
         target_cpu = "fill_me",
