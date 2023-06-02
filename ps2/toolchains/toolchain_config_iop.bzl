@@ -13,7 +13,7 @@ load(
     "variable_with_value",
 )
 
-def _cc_toolchain_config_impl(ctx):
+def _cc_toolchain_config_iop_impl(ctx):
     all_compile_actions = [
         ACTION_NAMES.assemble,
         ACTION_NAMES.c_compile,
@@ -343,7 +343,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.assemble,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/as.sh",
+                    path = "wrappers/mipsel-ps2-elf/as.sh",
                 ),
             ],
             implies = [
@@ -353,7 +353,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.preprocess_assemble,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/as.sh",
+                    path = "wrappers/mipsel-ps2-elf/as.sh",
                 ),
             ],
             implies = [
@@ -363,7 +363,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.c_compile,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/gcc.sh",
+                    path = "wrappers/mipsel-ps2-elf/gcc.sh",
                 ),
             ],
             implies = [
@@ -375,7 +375,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_compile,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/g++.sh",
+                    path = "wrappers/mipsel-ps2-elf/g++.sh",
                 ),
             ],
             implies = [
@@ -387,7 +387,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_static_library,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/ar.sh",
+                    path = "wrappers/mipsel-ps2-elf/ar.sh",
                 ),
             ],
             implies = [
@@ -398,7 +398,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.cpp_link_executable,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/ld.sh",
+                    path = "wrappers/mipsel-ps2-elf/ld.sh",
                 ),
             ],
             implies = [
@@ -409,7 +409,7 @@ def _cc_toolchain_config_impl(ctx):
             action_name = ACTION_NAMES.strip,
             tools = [
                 tool(
-                    path = "wrappers/mips64r5900-ps2-elf/strip.sh",
+                    path = "wrappers/mipsel-ps2-elf/strip.sh",
                 ),
             ],
         ),
@@ -435,8 +435,8 @@ def _cc_toolchain_config_impl(ctx):
         compiler = "fill_me",
     )
 
-cc_toolchain_config = rule(
-    implementation = _cc_toolchain_config_impl,
+cc_toolchain_config_iop = rule(
+    implementation = _cc_toolchain_config_iop_impl,
     attrs = {
     },
     provides = [

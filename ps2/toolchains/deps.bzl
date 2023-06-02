@@ -9,3 +9,7 @@ def ps2_toolchain_register():
     native.register_toolchains(
         "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:mips64r5900-ps2-elf-toolchain",
     )
+
+    native.register_toolchains(
+        "@com_github_wpieterse-me_bazel-toolchain-ps2//toolchains:mipsel-ps2-elf-toolchain",
+    )
