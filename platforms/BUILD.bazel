@@ -34,12 +34,6 @@ platform(
         "@com_github_wpieterse-me_bazel-platforms//cpu:mips64r5900el",
         "@com_github_wpieterse-me_bazel-platforms//os:ps2-ee",
     ],
-    # exec_properties = {
-    #     "container-image": "docker://docker.io/ps2dev/ps2dev:latest",
-    # },
-    # remote_execution_properties = """
-    #     "container-image": "docker://docker.io/ps2dev/ps2dev:latest",
-    # """,
 )
 
 platform(

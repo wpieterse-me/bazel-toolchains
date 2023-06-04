@@ -1,10 +1,5 @@
 build --incompatible_enable_cc_toolchain_resolution
 
-# build --experimental_docker_verbose
-# build --experimental_enable_docker_sandbox
-# build --spawn_strategy=docker
-# build --define=EXECUTOR=remote
-
 build:target-msdos --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-32_msdos
 build:target-mingw-32 --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-32_windows
 build:target-mingw-64 --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-64_windows
