@@ -79,6 +79,10 @@ def _cc_toolchain_config_impl(ctx):
         wrapper_path = ctx.attr.target,
         c_compile_features = [
             "compiler_no_canonical_system_headers",
+            "gba_compiler_specific",
+        ],
+        cpp_link_executable_features = [
+            "gba_linker_specific",
         ],
     )
 

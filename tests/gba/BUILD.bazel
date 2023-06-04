@@ -5,5 +5,12 @@ load(
 
 gba_binary(
     name = "gba",
-    binary = "//tests/binary",
+    binary = ":gba_exe",
+)
+
+cc_binary(
+    name = "gba_exe",
+    srcs = [
+        "main.c",
+    ],
 )
