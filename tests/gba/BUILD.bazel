@@ -1,0 +1,9 @@
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-gba//rules:defs.bzl",
+    "gba_binary",
+)
+
+gba_binary(
+    name = "gba",
+    binary = "//tests/binary",
+)

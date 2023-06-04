@@ -1,0 +1,16 @@
+sh_binary(
+    name = "fixer",
+    srcs = [
+        "fixer.sh",
+    ],
+    data = [
+        "@com_github_wpieterse-me_bazel-toolchain-gba-archive//:devkitARM/bin/arm-none-eabi-objcopy",
+        "@com_github_wpieterse-me_bazel-toolchain-gba-archive//:tools/bin/gbafix",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)

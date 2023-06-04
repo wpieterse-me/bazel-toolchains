@@ -4,5 +4,6 @@ shared
 shared-gcc
 
 djgpp
+gba
 mingw
 ps2dev

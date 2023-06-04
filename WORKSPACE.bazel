@@ -32,6 +32,11 @@ local_repository(
     path = "mingw",
 )
 
+local_repository(
+    name = "com_github_wpieterse-me_bazel-toolchain-gba",
+    path = "gba",
+)
+
 load(
     "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchains:deps.bzl",
     djgpp_toolchain_deps = "toolchain_deps",
@@ -61,3 +66,13 @@ load(
 mingw_toolchain_deps()
 
 mingw_toolchain_register()
+
+load(
+    "@com_github_wpieterse-me_bazel-toolchain-gba//toolchains:deps.bzl",
+    gba_toolchain_deps = "toolchain_deps",
+    gba_toolchain_register = "toolchain_register",
+)
+
+gba_toolchain_deps()
+
+gba_toolchain_register()

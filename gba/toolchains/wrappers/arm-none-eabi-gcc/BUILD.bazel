@@ -1,0 +1,11 @@
+filegroup(
+    name = "arm-none-eabi-gcc",
+    srcs = glob(
+        include = [
+            "*.sh",
+        ],
+    ),
+    visibility = [
+        "//visibility:public",
+    ],
+)
