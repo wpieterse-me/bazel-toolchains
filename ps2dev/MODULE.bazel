@@ -1,0 +1,4 @@
+module(
+    name = "com_github_wpieterse-me_bazel-toolchain-ps2dev",
+    version = "0.0.0",
+)

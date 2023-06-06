@@ -1,0 +1,4 @@
+module(
+    name = "com_github_wpieterse-me_bazel-toolchain-shared-gnu",
+    version = "0.0.0",
+)

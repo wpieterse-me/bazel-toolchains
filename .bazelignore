@@ -7,3 +7,5 @@ djgpp
 gba
 mingw
 ps2dev
+
+tests/gba

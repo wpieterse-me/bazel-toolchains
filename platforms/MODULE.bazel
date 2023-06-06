@@ -1,0 +1,9 @@
+module(
+    name = "com_github_wpieterse-me_bazel-platforms",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "platforms",
+    version = "0.0.6",
+)

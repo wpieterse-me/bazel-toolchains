@@ -1,0 +1,28 @@
+module(
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "platforms",
+    version = "0.0.6",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-platforms",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-shared-gnu",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
+    version = "0.0.0",
+)
+
+register_toolchains(
+    "@com_github_wpieterse-me_bazel-toolchain-djgpp//toolchains:i586-pc-msdosdjgpp-toolchain",
+)

@@ -1,0 +1,13 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,10 @@
++package(default_visibility = ["//visibility:public"])
++
++filegroup(
++    name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
++    srcs = glob(
++        include = [
++            "**",
++        ],
++    ),
++)

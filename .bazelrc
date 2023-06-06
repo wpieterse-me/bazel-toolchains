@@ -1,3 +1,5 @@
+build --experimental_enable_bzlmod
+
 build --incompatible_enable_cc_toolchain_resolution
 
 build:target-msdos --platforms=@com_github_wpieterse-me_bazel-platforms//:x86-32_msdos

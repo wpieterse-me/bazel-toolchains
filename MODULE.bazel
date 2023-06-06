@@ -1,0 +1,77 @@
+module(
+    name = "com_github_wpieterse-me_bazel-toolchains",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-platforms",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-shared-gnu",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-ps2dev",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-mingw",
+    version = "0.0.0",
+)
+
+bazel_dep(
+    name = "com_github_wpieterse-me_bazel-toolchain-gba",
+    version = "0.0.0",
+)
+
+archive_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
+    integrity = "sha256-RugiHk3jVsLmylDZPxSFGEotMQ2TP/wPXj1d4WvpylQ=",
+    strip_prefix = "djgpp",
+    urls = [
+        "https://github.com/andrewwutw/build-djgpp/releases/download/v3.3/djgpp-linux64-gcc1210.tar.bz2",
+    ],
+    patches = [
+        "//patches/djgpp:module_dot_bazel.patch",
+        "//patches/djgpp:add_build_file.patch",
+    ],
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-platforms",
+    path = "./platforms",
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-shared-gnu",
+    path = "./shared-gnu",
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-djgpp",
+    path = "./djgpp",
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-ps2dev",
+    path = "./ps2dev",
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-mingw",
+    path = "./mingw",
+)
+
+local_path_override(
+    module_name = "com_github_wpieterse-me_bazel-toolchain-gba",
+    path = "./gba",
+)

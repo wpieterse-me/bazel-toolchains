@@ -1,5 +1,5 @@
 load(
-    "@com_github_wpieterse-me_bazel-toolchain-mingw//rules:defs.bzl",
+    "@com_github_wpieterse-me_bazel-toolchain-djgpp//rules:defs.bzl",
     "msdos_binary",
 )
 

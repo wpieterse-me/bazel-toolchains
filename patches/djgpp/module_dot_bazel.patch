@@ -1,0 +1,7 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -0,0 +1,4 @@
++module(
++    name = "com_github_wpieterse-me_bazel-toolchain-djgpp-archive",
++    version = "0.0.0",
++)
